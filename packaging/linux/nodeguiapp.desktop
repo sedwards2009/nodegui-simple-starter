@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=NodeGuiApp
+Exec=/opt/nodeguiapp/nodeguiapp
+Terminal=false
+Type=Application
+Comment=A NodeGui application
+Categories=System;X-GNOME-Utilities;
+Icon=nodeguiapp

@@ -6,7 +6,8 @@
     "build": "npm run build-code && npm run build-bundle",
     "build-code": "tsc",
     "build-bundle": "esbuild build/main.js --sourcemap --bundle --outfile=dist/main.cjs --platform=node --format=cjs --external:@nodegui/nodegui \"--external:nodegui-plugin-*\"",
-    "clean": "rimraf build dist",
+    "clean": "rimraf build dist tmp-jam-pack-nodegui",
+    "package": "jam-pack-nodegui --config packaging/jam-pack-nodegui.json",
     "run": "qode dist/main.cjs"
   },
   "repository": {
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@types/node": "^20.3.1",
     "esbuild": "^0.18.4",
+    "jam-pack-nodegui": "^0.16.0",
     "rimraf": "^5.0.1",
     "typescript": "^5.1.3"
   },

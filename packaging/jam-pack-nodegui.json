@@ -1,0 +1,76 @@
+{
+  "fetch": {
+    "gitFromCwd": true
+  },
+  "build": {
+    "packageManager": "npm"
+  },
+  "prune": {
+    "skip": false,
+    "patterns": [
+      {
+        "keep": [
+          "LICENSE.txt",
+          "README.md",
+          "package.json",
+          "dist/*.js",
+          "dist/*.cjs",
+          "assets/*"
+        ]
+      }
+    ]
+  },
+  "addLauncher": {
+    "jsEntryPoint": "dist/main.cjs"
+  },
+  "quietQode": {},
+  "zip": {
+    "platforms": ["linux", "macos", "windows"],
+    "skip": false
+  },
+  "debian": {
+    "skip": true,
+    "controlFields": {
+      "Depends": "libx11-6",
+      "Section": "x11",
+      "Maintainer": "Someone",
+      "Priority": "optional",
+      "Description": "A NodeGui application"
+    },
+    "prePack": [
+      "cd $debianStep_debianSourceDirectory && mkdir -p usr/share/applications",
+      "cd $debianStep_debianSourceDirectory && mv opt/nodeguiapp/nodeguiapp.desktop usr/share/applications/",
+
+      "cd $debianStep_debianSourceDirectory && mkdir -p usr/share/icons",
+      "cd $debianStep_debianSourceDirectory && cp -r $pruneStep_trashDirectory/packaging/linux/icons/hicolor usr/share/icons/",
+
+      "cd $debianStep_debianSourceDirectory && cp -r $pruneStep_trashDirectory/packaging/linux/debian/* DEBIAN/",
+      "cd $debianStep_debianSourceDirectory && chmod 755 DEBIAN/*"
+    ]
+  },
+  "appImage": {
+    "exeEntryPoint": "nodeguiapp",
+    "prePack": [
+      "cp $pruneStep_trashDirectory/packaging/linux/nodeguiapp.desktop $appImageStep_appImageSourceDirectory",
+      "cp $pruneStep_trashDirectory/packaging/linux/icons/hicolor/32x32/apps/nodeguiapp.png $appImageStep_appImageSourceDirectory"
+    ]
+  },
+  "nsis": {
+    "skip": false,
+    "description": "A NodeGui application",
+    "detailColors": "3db54a 000000",
+    "appTitle": "nodeguiapp",
+    "installerIcon": "$pruneStep_trashDirectory/packaging/windows/logo/nodeguiapp.ico",
+    "uninstallerIcon": "$pruneStep_trashDirectory/packaging/windows/logo/nodeguiapp.ico"
+  },
+  "dmg" : {
+    "applicationIcon": "$pruneStep_trashDirectory/packaging/macos/nodeguiapp.icns",
+    "applicationTitle": "nodeguiapp",
+    "nsHumanReadableCopyright": "Copyright 2023 Someone",
+    "cfBundleIdentifier": "com.someapp.someapp",
+    "prePack": [
+      "mv $dmgStep_dmgResourcesDirectory/nodeguiapp $dmgStep_dmgMacOSDirectory/"
+    ]
+  }
+
+}
