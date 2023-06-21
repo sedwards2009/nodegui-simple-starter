@@ -60,8 +60,8 @@
     "description": "A NodeGui application",
     "detailColors": "3db54a 000000",
     "appTitle": "nodeguiapp",
-    "installerIcon": "$pruneStep_trashDirectory/packaging/windows/logo/nodeguiapp.ico",
-    "uninstallerIcon": "$pruneStep_trashDirectory/packaging/windows/logo/nodeguiapp.ico"
+    "installerIcon": "$pruneStep_trashDirectory/packaging/windows/nodeguiapp.ico",
+    "uninstallerIcon": "$pruneStep_trashDirectory/packaging/windows/nodeguiapp.ico"
   },
   "dmg" : {
     "applicationIcon": "$pruneStep_trashDirectory/packaging/macos/nodeguiapp.icns",
