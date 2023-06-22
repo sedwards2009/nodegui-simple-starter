@@ -46,7 +46,6 @@
     ]
   },
   "appImage": {
-    "exeEntryPoint": "nodeguiapp",
     "prePack": [
       "cp $pruneStep_trashDirectory/packaging/linux/nodeguiapp_appimage.desktop $appImageStep_appImageSourceDirectory",
       "cp $pruneStep_trashDirectory/packaging/linux/icons/hicolor/32x32/apps/nodeguiapp.png $appImageStep_appImageSourceDirectory"
