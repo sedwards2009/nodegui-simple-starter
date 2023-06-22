@@ -29,7 +29,7 @@
     "skip": false
   },
   "debian": {
-    "skip": true,
+    "skip": false,
     "controlFields": {
       "Depends": "libx11-6",
       "Section": "x11",
@@ -39,19 +39,16 @@
     },
     "prePack": [
       "cd $debianStep_debianSourceDirectory && mkdir -p usr/share/applications",
-      "cd $debianStep_debianSourceDirectory && mv opt/nodeguiapp/nodeguiapp.desktop usr/share/applications/",
+      "cd $debianStep_debianSourceDirectory && cp $pruneStep_trashDirectory/packaging/linux/nodeguiapp.desktop usr/share/applications/",
 
       "cd $debianStep_debianSourceDirectory && mkdir -p usr/share/icons",
-      "cd $debianStep_debianSourceDirectory && cp -r $pruneStep_trashDirectory/packaging/linux/icons/hicolor usr/share/icons/",
-
-      "cd $debianStep_debianSourceDirectory && cp -r $pruneStep_trashDirectory/packaging/linux/debian/* DEBIAN/",
-      "cd $debianStep_debianSourceDirectory && chmod 755 DEBIAN/*"
+      "cd $debianStep_debianSourceDirectory && cp -r $pruneStep_trashDirectory/packaging/linux/icons/hicolor usr/share/icons/"
     ]
   },
   "appImage": {
     "exeEntryPoint": "nodeguiapp",
     "prePack": [
-      "cp $pruneStep_trashDirectory/packaging/linux/nodeguiapp.desktop $appImageStep_appImageSourceDirectory",
+      "cp $pruneStep_trashDirectory/packaging/linux/nodeguiapp_appimage.desktop $appImageStep_appImageSourceDirectory",
       "cp $pruneStep_trashDirectory/packaging/linux/icons/hicolor/32x32/apps/nodeguiapp.png $appImageStep_appImageSourceDirectory"
     ]
   },
