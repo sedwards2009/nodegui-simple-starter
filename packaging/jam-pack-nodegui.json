@@ -64,9 +64,7 @@
     "applicationTitle": "nodeguiapp",
     "nsHumanReadableCopyright": "Copyright 2023 Someone",
     "cfBundleIdentifier": "com.someapp.someapp",
-    "prePack": [
-      "mv $dmgStep_dmgResourcesDirectory/nodeguiapp $dmgStep_dmgMacOSDirectory/"
-    ]
+    "prePack": []
   }
 
 }
