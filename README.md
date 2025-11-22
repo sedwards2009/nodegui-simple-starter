@@ -18,7 +18,7 @@ Building
 
 Running
 -------
-`npm run run` will run the bundled application. Note, you will have to build it first.
+`npm run start` will run the bundled application. Note, you will have to build it first.
 
 
 Packaging
